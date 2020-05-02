@@ -233,6 +233,9 @@ function handleVolumeChange(e) {
         audio.volume = volume/100;
     }
     if (volume < 1) {
+        volume = 0;
+        currentVolume.style.height = volume + "%";
+        audio.volume = volume/100;
         volumeImage.src = volumeTypes.mute;
     }
     if (volume >= 1 && volume < 40) {
