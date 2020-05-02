@@ -5,10 +5,9 @@ class Block {
         var geometry = new THREE.SphereGeometry( 5, 64, 64 );
         const body = new THREE.Mesh(geometry, brownMat);
 
-        this.current.receiveShadow = false;
         this.current.position.y =  5;
-        this.current.position.z = 50;
-        this.current.position.x = 15;
+        this.current.position.z = -600;
+        this.current.position.x = 0;
 
         this.current.add(body);
     }

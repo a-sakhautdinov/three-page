@@ -177,6 +177,16 @@ function animate() {
     requestAnimationFrame( animate );
     currentState === GAME_STATE && checkCollision();
     threes.forEach((three) => three.animate());
+    starGeo.vertices.forEach(p => {
+        p.velocity += p.acceleration;
+        p.z += p.velocity;       
+        if (p.z > 200) {
+          p.z = -600;
+          p.velocity = 0;
+        }
+      });
+    starGeo.verticesNeedUpdate = true;
+    stars.rotation.z +=0.002;
     renderer.render(scene, camera);
 }
 
@@ -229,11 +239,73 @@ function createBlocks() {
     threes.forEach((three) => scene.add(three.current));
 }
 
+function createNeonLines() {
+    const { scene } = screenSettings;
+    var geometry = new THREE.CylinderGeometry( 2, 2, 3000, 32 );
+    var material = new THREE.MeshBasicMaterial( {color: 0xa49789} );
+    var cylinder = new THREE.Mesh( geometry, material );
+    cylinder.position.x = -45;
+    cylinder.position.y = 0;
+    cylinder.position.z = 100;
+    cylinder.rotation.x = 1.57;
+    scene.add( cylinder );
+    var geometry = new THREE.CylinderGeometry( 2, 2, 3000, 32 );
+    var material = new THREE.MeshBasicMaterial( {color: 0xa49789} );
+    var cylinder = new THREE.Mesh( geometry, material );
+    cylinder.position.x = -15;
+    cylinder.position.y = 0;
+    cylinder.position.z = 100;
+    cylinder.rotation.x = 1.57;
+    scene.add( cylinder );
+    var geometry = new THREE.CylinderGeometry( 2, 2, 3000, 32 );
+    var material = new THREE.MeshBasicMaterial( {color: 0xa49789} );
+    var cylinder = new THREE.Mesh( geometry, material );
+    cylinder.position.x = 15;
+    cylinder.position.y = 0;
+    cylinder.position.z = 100;
+    cylinder.rotation.x = 1.57;
+    scene.add( cylinder );
+    var geometry = new THREE.CylinderGeometry( 2, 2, 3000, 32 );
+    var material = new THREE.MeshBasicMaterial( {color: 0xa49789} );
+    material.transparent = true;
+    material.blending = THREE.AdditiveBlending;
+    var cylinder = new THREE.Mesh( geometry, material );
+    cylinder.position.x = 45;
+    cylinder.position.y = 0;
+    cylinder.position.z = 100;
+    cylinder.rotation.x = 1.57;
+    scene.add( cylinder );
+}
+
+function createStars() {
+    const { scene } = screenSettings;
+    starGeo = new THREE.Geometry();
+    for(let i=0;i<6000;i++) {
+        let star = new THREE.Vector3(
+        Math.random() * 600 - 300,
+        Math.random() * 600 - 300,
+        Math.random() * 600 - 300
+    );
+    star.velocity = 0;
+    star.acceleration = 0.01;
+    starGeo.vertices.push(star);
+    }
+    let sprite = new THREE.TextureLoader().load( 'star.png' );
+    let starMaterial = new THREE.PointsMaterial({
+        color: 0xaaaaaa,
+        size: 0.5,
+        map: sprite
+    });
+    stars = new THREE.Points(starGeo, starMaterial);
+    scene.add(stars);
+}
+
 function init(event) {
     initScreenSettings();
     createLights();
-    createFloor();
     createBlocks();
+    createStars();
+    createNeonLines();
     initUI();
     animate();
 }
