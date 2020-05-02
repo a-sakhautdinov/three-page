@@ -222,12 +222,12 @@ var volumeTypes = {
 function handleVolumeChange(e) {
     var currentVolume = document.getElementById("currentVolume");
     var volumeImage = document.getElementById("volumeImage");
-    if (e.keyCode === 45 && volume > 0) {
+    if (e.code === "Minus" && volume > 0) {
         volume = volume - 10;
         currentVolume.style.height = volume + "%";
         audio.volume = volume/100;
     }
-    if (e.keyCode === 61 && volume < 100) {
+    if (e.code === "Equal" && volume < 100) {
         volume = volume + 10;
         currentVolume.style.height = volume + "%";
         audio.volume = volume/100;
@@ -259,10 +259,10 @@ function handleVolume() {
 
 // movements
 function handleMoves(e) {
-    if (e.key === "a" && hero.current.position.x !== -30) {
+    if (e.code === "KeyA" && hero.current.position.x !== -30) {
         hero.current.translateX(-30);
     }
-    if (e.key === "d" && hero.current.position.x !== 30) {
+    if (e.code === "KeyD" && hero.current.position.x !== 30) {
         hero.current.translateX(30);
     }
 }
