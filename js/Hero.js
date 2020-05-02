@@ -4,24 +4,25 @@ class Hero {
 
     constructor() {
         const heroBody = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial({
-            color: 0x7abf8e
+            color: 0x5f9042
         }));
         heroBody.receiveShadow = false;
+        heroBody.name = 'body';
     
         const heroLeftHand = new THREE.Mesh(new THREE.BoxGeometry(2, 5, 2), new THREE.MeshBasicMaterial({
-            color: 0x7abf5e
+            color: 0x5f9042
         }));
         heroLeftHand.receiveShadow = false;
         heroLeftHand.position.x = -6;
         
         const heroRightHand = new THREE.Mesh(new THREE.BoxGeometry(2, 5, 2), new THREE.MeshBasicMaterial({
-            color: 0x7abf5e
+            color: 0x5f9042
         }));
         heroRightHand.receiveShadow = false;
         heroRightHand.position.x = 6;
     
         const heroHead = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({
-            color: 0x7abf5e
+            color: 0x5f9042
         }));
         heroHead.receiveShadow = false;
         heroHead.position.y = 8;
@@ -33,17 +34,5 @@ class Hero {
         this.current.add(heroLeftHand);
         this.current.add(heroRightHand);
         this.current.add(heroHead);
-    }
-
-    // movements
-    handleMoves() {
-        window.addEventListener("keypress", (e) => {
-            if (e.key === "a" && this.current.position.x !== -30) {
-                this.current.translateX(-30);
-            }
-            if (e.key === "d" && this.current.position.x !== 30) {
-                this.current.translateX(30);
-            }
-        });
     }
 }
