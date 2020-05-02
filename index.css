@@ -119,6 +119,29 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
   background-color: #e60000;
 }
 
+#volumeBar{
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  width: 20px;
+  height: 180px;
+  transform: rotate(180deg);
+  border: 2px solid #e60000;
+}
+
+#currentVolume{
+  width: 18px;
+  height: 50%;
+  background-color: #e60000;
+}
+
+#volumeImage{
+  position: absolute;
+  right: -4px;
+  top: -30px;
+  transform: rotate(180deg);
+}
+
 
 #distValue{
   position:relative;
@@ -146,14 +169,29 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
 
 #features{
   position: absolute;
-  top: 30px;
-  right: 5%;
+  bottom: 100px;
+  right: 10px;
   font-family:'Voltaire', sans-serif;
   color:#ff3503;
   font-size:16px;
+  text-align: right;
 }
 
 .features-item{
+  margin-left: 10px;
+}
+
+#info{
+  position: absolute;
+  bottom: 200px;
+  right: 10px;
+  font-family:'Voltaire', sans-serif;
+  color:#ff3503;
+  font-size:16px;
+  text-align: right;
+}
+
+.info-item{
   margin-left: 10px;
 }
 

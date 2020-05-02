@@ -6,6 +6,7 @@ var pointsInterval;
 var points = 0;
 var health = 100;
 var audio = new Audio("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Angel_Garcia/Netlabel_Day_2016_Soisloscerdos_Compilation/Angel_Garcia_-_03_-_Gugugu.mp3");
+var volume = 50;
 
 function setCurrentMod(mode) {
     var fieldDistance = document.getElementById("distValue");
@@ -211,9 +212,53 @@ function createLights() {
     scene.add(shadowLight);
 }
 
+var volumeTypes = {
+    mute: 'volume-off.svg',
+    low: 'volume.svg',
+    medium: 'volume-low.svg',
+    high: 'volume-high.svg',
+}
+
+function handleVolumeChange(e) {
+    var currentVolume = document.getElementById("currentVolume");
+    var volumeImage = document.getElementById("volumeImage");
+    if (e.keyCode === 45 && volume > 0) {
+        volume = volume - 10;
+        currentVolume.style.height = volume + "%";
+        audio.volume = volume/100;
+    }
+    if (e.keyCode === 61 && volume < 100) {
+        volume = volume + 10;
+        currentVolume.style.height = volume + "%";
+        audio.volume = volume/100;
+    }
+    if (volume < 1) {
+        volumeImage.src = volumeTypes.mute;
+    }
+    if (volume >= 1 && volume < 40) {
+        volumeImage.src = volumeTypes.low;
+    }
+    if (volume >= 40 && volume < 90) {
+        volumeImage.src = volumeTypes.medium;
+    }
+    if (volume >= 90) {
+        volumeImage.src = volumeTypes.high;
+    }
+}
+
+function handleVolume() {
+    var volumeBar = document.getElementById("volumeBar");
+    window.addEventListener("keypress", handleVolumeChange);
+    volumeBar.addEventListener("click", (e) => {
+        _currentVolume = 100 - ((e.y - 50) / 180 * 100);
+        volume = Math.floor(_currentVolume);
+        currentVolume.style.height = volume + "%";
+        audio.volume = volume/100;
+    });
+}
+
 // movements
 function handleMoves(e) {
-    console.log(e);
     if (e.key === "a" && hero.current.position.x !== -30) {
         hero.current.translateX(-30);
     }
@@ -308,6 +353,7 @@ function init(event) {
     createStars();
     createNeonLines();
     initUI();
+    handleVolume();
     animate();
 }
 
