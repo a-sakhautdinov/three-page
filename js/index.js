@@ -213,6 +213,7 @@ function createLights() {
 
 // movements
 function handleMoves(e) {
+    console.log(e);
     if (e.key === "a" && hero.current.position.x !== -30) {
         hero.current.translateX(-30);
     }
