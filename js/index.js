@@ -77,6 +77,7 @@ function initUI() {
     var gameOver = document.getElementById("gameOver");
 
     startButton.addEventListener("click", (e) => {
+        audio.play();
         currentState = GAME_STATE;
         startButton.style.display = 'none';
         endButton.style.display = 'block';
@@ -90,6 +91,7 @@ function initUI() {
     });
 
     endButton.addEventListener("click", () => {
+        audio.pause();
         startButton.style.display = 'block';
         endButton.style.display = 'none';
         currentState = INITIAL_STATE;
@@ -232,7 +234,6 @@ function init(event) {
     createLights();
     createFloor();
     createBlocks();
-    audio.play();
     initUI();
     animate();
 }
