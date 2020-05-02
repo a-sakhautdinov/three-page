@@ -32,7 +32,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
   text-transform: uppercase;
   font-size:120px;
   text-align:center;
-  color:#ffc5a2;
+  color:#e60000;
   opacity:0;
   left:50%;
   top:50%;
@@ -71,8 +71,8 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
 .button{
   position:relative;
   text-transform:uppercase;
-  color:#dc5f45;
-  border: 2px solid #dc5f45;
+  color:#e60000;
+  border: 2px solid #e60000;
   padding: 0 5px;
   font-size:40px;
   font-family:'Voltaire';
@@ -84,9 +84,9 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
 .button-selected{
   position:relative;
   text-transform:uppercase;
-  color: #ffffff;
-  background-color: #dc5f45;
-  border: 2px solid #dc5f45;
+  color: black;
+  background-color: #e60000;
+  border: 2px solid #e60000;
   padding: 0 5px;
   font-size:40px;
   font-family:'Voltaire';
@@ -99,7 +99,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
   position:relative;
   font-family:'Voltaire', sans-serif;
   text-transform:uppercase;
-  color:#ffa873;
+  color:#ff3503;
   font-size:12px;
   letter-spacing:2px;
   text-align:center;
@@ -116,14 +116,14 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
 #currentHealth{
   width: 100%;
   height: 20px;
-  background-color: #dc5f45;
+  background-color: #e60000;
 }
 
 
 #distValue{
   position:relative;
   text-transform:uppercase;
-  color:#dc5f45;
+  color:#e60000;
   font-size:40px;
   font-family:'Voltaire';
   text-align:center;
@@ -136,7 +136,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
   margin: auto;
   margin-bottom:50px;
   font-family:'Voltaire', sans-serif;
-  color:#dc5f45;
+  color:#e60000;
   font-size:16px;
   letter-spacing:1px;
   text-transform: uppercase;
@@ -146,10 +146,10 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
 
 #features{
   position: absolute;
-  bottom: 30px;
+  top: 30px;
   right: 5%;
   font-family:'Voltaire', sans-serif;
-  color:#dc5f45;
+  color:#ff3503;
   font-size:16px;
 }
 
@@ -168,7 +168,7 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
   left:50%;
   top:30%;
   font-family:'Voltaire', sans-serif;
-  color:#5f9042;
+  color:#ff3503;
   font-size:24px;
   transform:translate(-50%,0%);
   user-select: none;
@@ -179,6 +179,10 @@ blockquote, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, li, ol, p, pre, td, t
   right: 5px;
   top: 5px;
   font-family:'Voltaire', sans-serif;
-  color:#5f9042;
+  color:#ff3503;
   opacity: 0.5;
+}
+
+#endButton{
+  display: none;
 }

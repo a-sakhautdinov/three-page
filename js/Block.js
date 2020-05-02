@@ -2,9 +2,8 @@ class Block {
     current = new THREE.Group();
 
     constructor() {
-        const body = new THREE.Mesh(new THREE.BoxGeometry(10, 15, 10), new THREE.MeshBasicMaterial({
-            color: 0xff4d21,
-        }));
+        var geometry = new THREE.SphereGeometry( 5, 64, 64 );
+        const body = new THREE.Mesh(geometry, brownMat);
 
         this.current.receiveShadow = false;
         this.current.position.y =  5;

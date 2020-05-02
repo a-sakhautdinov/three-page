@@ -5,10 +5,11 @@ var threes = [];
 var pointsInterval;
 var points = 0;
 var health = 100;
+var audio = new Audio("https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Angel_Garcia/Netlabel_Day_2016_Soisloscerdos_Compilation/Angel_Garcia_-_03_-_Gugugu.mp3");
 
 function setCurrentMod(mode) {
     var fieldDistance = document.getElementById("distValue");
-    fieldDistance.innerText = 0;
+    fieldDistance.innerText = "000";
     currentGameMode = mode;
     switch(currentGameMode) {
         case DEFAULT_MODE:
@@ -77,6 +78,8 @@ function initUI() {
 
     startButton.addEventListener("click", (e) => {
         currentState = GAME_STATE;
+        startButton.style.display = 'none';
+        endButton.style.display = 'block';
         screenSettings.changeCameraState(GAME_STATE);
         showCurrentModeButton(GAME_STATE);
         health = 100;
@@ -87,6 +90,8 @@ function initUI() {
     });
 
     endButton.addEventListener("click", () => {
+        startButton.style.display = 'block';
+        endButton.style.display = 'none';
         currentState = INITIAL_STATE;
         screenSettings.changeCameraState(INITIAL_STATE);
         showCurrentModeButton(INITIAL_STATE);
@@ -227,6 +232,7 @@ function init(event) {
     createLights();
     createFloor();
     createBlocks();
+    audio.play();
     initUI();
     animate();
 }

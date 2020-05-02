@@ -5,7 +5,7 @@ var blackMat = new THREE.MeshPhongMaterial({
 });
 
 var brownMat = new THREE.MeshPhongMaterial({
-    color: 0xb44b39,
+    color: 0x5B4D3D,
     shininess: 0,
     shading: THREE.FlatShading,
 });
